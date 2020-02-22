@@ -14,6 +14,11 @@ namespace Identity.WebApi.Controllers.User.v1
             _userService = userService;
         }
 
+        public IActionResult Index()
+        {
+            return Ok("Successssss!!");
+        }
+
         [AllowAnonymous]
         [HttpPost("authenticate")]
         public IActionResult Authenticate([FromBody] Login loginParam)
