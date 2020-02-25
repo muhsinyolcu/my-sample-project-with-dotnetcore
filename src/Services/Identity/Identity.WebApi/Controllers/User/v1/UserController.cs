@@ -5,18 +5,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Identity.WebApi.Controllers.User.v1
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/v1")]
     public class UserController : ControllerBase
     {
         private IUserService _userService;
         public UserController(IUserService userService)
         {
             _userService = userService;
-        }
-
-        public IActionResult Index()
-        {
-            return Ok("Successssss!!");
         }
 
         [AllowAnonymous]
