@@ -1,0 +1,48 @@
+{
+  "ReRoutes": [
+    //User Service
+    //Authentication
+    {
+      "DownstreamPathTemplate": "/api/v1.0/user/authenticate",
+      "DownstreamScheme": "http",
+      "DownstreamHostandPorts": [
+        {
+          "Host": "localhost",
+          "Port": "2001"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/user/authenticate",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    //Product Service
+    //Default Product Address
+    {
+      "DownstreamPathTemplate": "/api/v1/product",
+      "DownstreamScheme": "http",
+      "DownstreamHostandPorts": [
+        {
+          "Host": "localhost",
+          "Port": "2002"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/product",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    //Get All Products
+    {
+      "DownstreamPathTemplate": "/api/v1/product/getallproducts",
+      "DownstreamScheme": "http",
+      "DownstreamHostandPorts": [
+        {
+          "Host": "localhost",
+          "Port": "2002"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/product/getallproducts",
+      "UpstreamHttpMethod": [ "Get" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:8080"
+  }
+}
