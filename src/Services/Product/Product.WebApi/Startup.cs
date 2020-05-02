@@ -27,7 +27,7 @@ namespace Product.WebApi
             });
             services.AddMvc(option => option.EnableEndpointRouting = false).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddApiVersioning(o => o.ApiVersionReader = new HeaderApiVersionReader("api-version"));
-            var iss = Configuration["JwtSettings:Issuer"];
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {

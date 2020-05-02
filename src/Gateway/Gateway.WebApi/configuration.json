@@ -40,6 +40,20 @@
       ],
       "UpstreamPathTemplate": "/api/product/getallproducts",
       "UpstreamHttpMethod": [ "Get" ]
+    },
+    //WebScraping
+    //Gold
+    {
+      "DownstreamPathTemplate": "/api/v1/goldexchanges/getgoldexchangeinfos",
+      "DownstreamScheme": "http",
+      "DownstreamHostandPorts": [
+        {
+          "Host": "localhost",
+          "Port": "2003"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/goldexchanges/getgoldexchangeinfos",
+      "UpstreamHttpMethod": [ "Get" ]
     }
   ],
   "GlobalConfiguration": {

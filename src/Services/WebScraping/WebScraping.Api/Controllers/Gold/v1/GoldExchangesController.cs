@@ -1,18 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using WebScraping.Api.Services.Gold;
 
 namespace WebScraping.Api.Controllers.Gold.v1
 {
+    [Authorize]
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
-    public class GoldExchangesController : Controller
+    public class GoldExchangesController : BaseApiController
     {
-        public IActionResult Index()
+        private readonly IGoldExchangesService _goldExchangesService;
+        public GoldExchangesController(IGoldExchangesService goldExchangesService)
         {
-            return View();
+            _goldExchangesService = goldExchangesService;
+        }
+
+        [HttpGet("getgoldexchangeinfos")]
+        public IActionResult GetGoldExchangeInfos()
+        {
+            var goldExchanges = _goldExchangesService.GetGoldExchangeInfos().Result;
+            return HttpEntity(goldExchanges);
         }
     }
 }
