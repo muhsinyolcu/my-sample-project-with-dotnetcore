@@ -3,7 +3,7 @@
     //User Service
     //Authentication
     {
-      "DownstreamPathTemplate": "/api/v1.0/user/authenticate",
+      "DownstreamPathTemplate": "/api/{version}/user/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostandPorts": [
         {
@@ -11,13 +11,13 @@
           "Port": "2001"
         }
       ],
-      "UpstreamPathTemplate": "/api/user/authenticate",
+      "UpstreamPathTemplate": "/api/{version}/u/{everything}",
       "UpstreamHttpMethod": [ "Post" ]
     },
     //Product Service
     //Default Product Address
     {
-      "DownstreamPathTemplate": "/api/v1/product",
+      "DownstreamPathTemplate": "/api/{version}/product/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostandPorts": [
         {
@@ -25,26 +25,13 @@
           "Port": "2002"
         }
       ],
-      "UpstreamPathTemplate": "/api/product",
-      "UpstreamHttpMethod": [ "Get" ]
-    },
-    //Get All Products
-    {
-      "DownstreamPathTemplate": "/api/v1/product/getallproducts",
-      "DownstreamScheme": "http",
-      "DownstreamHostandPorts": [
-        {
-          "Host": "localhost",
-          "Port": "2002"
-        }
-      ],
-      "UpstreamPathTemplate": "/api/product/getallproducts",
+      "UpstreamPathTemplate": "/api/{version}/p/{everything}",
       "UpstreamHttpMethod": [ "Get" ]
     },
     //WebScraping
     //Gold
     {
-      "DownstreamPathTemplate": "/api/v1/goldexchanges/getgoldexchangeinfos",
+      "DownstreamPathTemplate": "/api/{version}/goldexchanges/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostandPorts": [
         {
@@ -52,7 +39,7 @@
           "Port": "2003"
         }
       ],
-      "UpstreamPathTemplate": "/api/goldexchanges/getgoldexchangeinfos",
+      "UpstreamPathTemplate": "/api/{version}/g/{everything}",
       "UpstreamHttpMethod": [ "Get" ]
     }
   ],
